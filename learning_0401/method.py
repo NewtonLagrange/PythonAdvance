@@ -63,3 +63,5 @@ Bird.fact()
 bird.fact1()
 Bird.static()
 bird.static()
+# 删除指定方法
+del Bird.static
