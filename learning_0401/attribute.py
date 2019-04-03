@@ -16,10 +16,3 @@ g1.name = 'apple'
 print(id(g1), id(g2))
 Good.name = 2
 print(id(g1.name), id(g2.name), id(Good.name))
-
-
-
-
-
-
-

@@ -15,7 +15,6 @@ list_gene = (x for x in range(1, 11))
 for l in list_gene:
     print(l)
 
-
 print('斐波那契数列')
 
 
@@ -25,17 +24,10 @@ def fib(num):
     yield a
     j = 1
     while j < num:
-        a, b = b, a+b
+        a, b = b, a + b
         yield a
         j += 1
 
 
 for i in fib(6):
     print(i)
-
-
-
-
-
-
-

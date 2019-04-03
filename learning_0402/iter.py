@@ -3,6 +3,7 @@
 """
 
 from collections.abc import Iterable, Iterator
+
 d = {'name': 'outime', 'age': 21}
 li = [1, 2, 3, 4, 5]
 t = (1, 2, 3, 4, 5)
@@ -24,5 +25,3 @@ print('tuple:', isinstance(t, Iterator))
 print('string:', isinstance(s, Iterator))
 print('int:', isinstance(num, Iterator))
 print('set:', isinstance(test_set, Iterator))
-
-

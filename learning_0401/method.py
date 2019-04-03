@@ -8,6 +8,7 @@ class Bird:
     """
     这是一只鸟
     """
+
     def __init__(self, name):
         self._name = name
 
