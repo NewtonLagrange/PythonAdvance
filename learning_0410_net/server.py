@@ -1,3 +1,6 @@
+"""
+UDP协议服务器
+"""
 import socket
 from threading import Thread, Lock
 
@@ -9,17 +12,19 @@ def send():
         if lock2.acquire():
             data = input('请输入要回复的数据: ')
             server.sendto(data.encode('utf8'), recv_data[1])
+            lock2.release()
 
 
 def recv():
+    first = True
     while True:
         global recv_data
-        lock1.acquire()
         recv_data = server.recvfrom(BUFFER_SIZE)
-        recv_data = (recv_data[0].decode(encoding='gbk'), recv_data[1])
+        recv_data = (recv_data[0].decode(encoding='utf8'), recv_data[1])
         print('\n消息: %s, 来自: %s' % recv_data)
-        lock1.release()
-        lock2.release()
+        if first:
+            lock2.release()
+            first = False
 
 
 def main():
