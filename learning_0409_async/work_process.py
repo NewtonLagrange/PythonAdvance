@@ -1,19 +1,17 @@
-from multiprocessing import Process
+from multiprocessing import Process, Queue
 import time
 
 
-class MyProcess(Process):
-    def run(self):
-        while True:
-            print('Hi, I am a child process')
-            time.sleep(1)
+def get_path():
+    pass
+
+
+def load_img(path):
+    pass
 
 
 def main():
-    process = MyProcess()
-    process.start()
-    process.join()
-    print('finish')
+    pass
 
 
 if __name__ == '__main__':

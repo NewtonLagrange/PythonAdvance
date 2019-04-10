@@ -18,10 +18,8 @@ def read():
 
 
 def main():
-    for i in range(4):
-        read_p = Process(target=read)
-        read_p.start()
-
+    read_p = Process(target=read)
+    read_p.start()
     read_p.join()
     print('finish')
 
