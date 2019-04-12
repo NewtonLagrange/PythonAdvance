@@ -4,16 +4,14 @@ UDP协议客户端
 import socket
 from threading import Thread
 
-IP_PORT = ('192.168.12.149', 50000)
-BUFFER_SIZE = 1024
-# socket.AF_INET: 表示网络间传输, socket.SOCK_DGRAM: 表示UDP协议
-client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
 
 def send():
     while True:
+        ip = input('输入要发送的 IP: ')
+        port = int(input('请输入要发送的 Port: '))
         data = input('请输入要发送的数据: ')
-        client.sendto(data.encode('utf8'), IP_PORT)
+        addr = (ip, port)
+        client.sendto(data.encode('utf8'), addr)
 
 
 def recv():
@@ -24,7 +22,7 @@ def recv():
 
 
 def main():
-    client.sendto('hello'.encode('utf8'), IP_PORT)
+    client.sendto(''.encode('utf8'), IP_PORT)
     send_p = Thread(target=send)
     send_p.start()
     recv_p = Thread(target=recv)
@@ -37,4 +35,8 @@ def main():
 
 
 if __name__ == '__main__':
+    IP_PORT = ('192.168.12.149', 50000)
+    BUFFER_SIZE = 1024
+    # socket.AF_INET: 表示网络间传输, socket.SOCK_DGRAM: 表示UDP协议
+    client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     main()

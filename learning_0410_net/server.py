@@ -9,6 +9,7 @@ BUFFER_SIZE = 1024
 
 def send():
     while True:
+
         if lock2.acquire():
             data = input('请输入要回复的数据: ')
             server.sendto(data.encode('utf8'), recv_data[1])
@@ -22,6 +23,7 @@ def recv():
         recv_data = server.recvfrom(BUFFER_SIZE)
         recv_data = (recv_data[0].decode(encoding='utf8'), recv_data[1])
         print('\n消息: %s, 来自: %s' % recv_data)
+
         if first:
             lock2.release()
             first = False
